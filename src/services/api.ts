@@ -13,11 +13,11 @@ export interface ApiResponse {
   success: boolean;
   message: string;
   result?: {
-    pre_classification: Array<{
+    pre_classification: {
       category: string;
       confidence: number;
       reasoning: string;
-    }>;
+    };
     classification: {
       category: string;
       confidence: number;

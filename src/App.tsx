@@ -59,7 +59,7 @@ function App() {
             {/* Two-column layout for classification and key-value pairs */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <ClassificationInfo 
-                preClassification={response.result.pre_classification[0]} 
+                preClassification={response.result.pre_classification} 
                 classification={response.result.classification} 
               />
               
