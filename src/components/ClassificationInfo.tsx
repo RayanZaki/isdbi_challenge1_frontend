@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+import type { ApiResponse } from '../services/api';
 
 // Define explicit types for classification data
 interface ClassificationData {
@@ -38,19 +39,19 @@ export const ClassificationInfo: React.FC<ClassificationInfoProps> = ({
           </h3>
           <div className="p-3 bg-slate-800/50 rounded-md border border-slate-700/50">
             <div className="flex justify-between items-center mb-1">
-              <span className="font-medium text-slate-300 text-sm">{preClassification.category}</span>
+              <span className="font-medium text-slate-300 text-sm">{preClassification?.category}</span>
               <span className="text-emerald-400 font-medium text-sm bg-emerald-400/10 px-2 py-0.5 rounded-full">
-                {formatConfidence(preClassification.confidence)}
+                {formatConfidence(preClassification?.confidence)}
               </span>
             </div>
             <div className="w-full bg-slate-700/50 h-2 rounded-full mb-2">
               <div
                 className="bg-gradient-to-r from-emerald-500 to-teal-500 h-2 rounded-full"
-                style={{ width: `${preClassification.confidence * 100}%` }}
+                style={{ width: `${preClassification?.confidence * 100}%` }}
               ></div>
             </div>
-            <p className="text-sm text-slate-400 italic border-l-2 border-emerald-500/30 pl-3 line-clamp-4 hover:line-clamp-none transition-all duration-300" title={preClassification.reasoning}>
-              "{preClassification.reasoning}"
+            <p className="text-sm text-slate-400 italic border-l-2 border-emerald-500/30 pl-3 line-clamp-4 hover:line-clamp-none transition-all duration-300" title={preClassification?.reasoning}>
+              "{preClassification?.reasoning}"
             </p>
           </div>
         </div>
