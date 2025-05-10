@@ -1,10 +1,16 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
-import type { ApiResponse } from '../services/api';
+
+// Define explicit types for classification data
+interface ClassificationData {
+  category: string;
+  confidence: number;
+  reasoning: string;
+}
 
 interface ClassificationInfoProps {
-  preClassification: ApiResponse['result']['pre_classification'][0];
-  classification: ApiResponse['result']['classification'];
+  preClassification: ClassificationData;
+  classification: ClassificationData;
 }
 
 export const ClassificationInfo: React.FC<ClassificationInfoProps> = ({

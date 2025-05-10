@@ -1,15 +1,29 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
-import type { ApiResponse } from '../services/api';
+
+// Define explicit types for ledger entries data
+interface LedgerEntry {
+  account: string;
+  debit: number;
+  credit: number;
+}
+
+interface EventProcessing {
+  transactionId: string;
+  eventDate: string;
+  description: string;
+  currency: string;
+  entries: LedgerEntry[];
+}
 
 interface LedgerEntriesProps {
-  data: ApiResponse['result']['event_processing'];
+  data: EventProcessing;
 }
 
 export const LedgerEntries: React.FC<LedgerEntriesProps> = ({ data }) => {
   // Calculate totals for the ledger
-  const totalDebit = data.entries.reduce((acc, entry) => acc + entry.debit, 0);
-  const totalCredit = data.entries.reduce((acc, entry) => acc + entry.credit, 0);
+  const totalDebit = data.entries.reduce((acc: number, entry: LedgerEntry) => acc + entry.debit, 0);
+  const totalCredit = data.entries.reduce((acc: number, entry: LedgerEntry) => acc + entry.credit, 0);
 
   return (
     <Card className="w-full border-slate-800/50 bg-slate-900/50 backdrop-blur-sm shadow-xl">
