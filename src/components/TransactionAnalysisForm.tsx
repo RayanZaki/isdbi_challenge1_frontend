@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button } from './ui/button';
 import { Card } from './ui/card';
 import { Textarea } from './ui/textarea';
+import { PredefinedExample } from './PredefinedExample';
 
 interface TransactionAnalysisFormProps {
   onSubmit: (data: { transaction_text: string }) => void;
@@ -20,6 +21,10 @@ export function TransactionAnalysisForm({ onSubmit, isLoading }: TransactionAnal
     
     onSubmit({ transaction_text: transactionText });
   };
+  
+  const handleExampleSelect = (text: string) => {
+    setTransactionText(text);
+  };
 
   return (
     <Card className="p-6">
@@ -30,6 +35,8 @@ export function TransactionAnalysisForm({ onSubmit, isLoading }: TransactionAnal
             Enter a transaction text to analyze its AAOIFI FAS applicability and get a detailed breakdown.
           </p>
         </div>
+        
+        <PredefinedExample onSelect={handleExampleSelect} />
 
         <div className="space-y-2">
           <label htmlFor="transaction_text" className="block font-medium">

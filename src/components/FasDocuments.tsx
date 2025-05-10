@@ -43,42 +43,8 @@ export function FasDocuments({ data, summaries }: FasDocumentsProps) {
             </p>
           </div>
           
-          {/* FAS Documents */}
-          {/* <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Relevant Excerpts</h3>
-            
-            {data[activeTab].map((doc) => (
-              <div 
-                key={doc.fas_id}
-                className="p-4 border border-slate-200 dark:border-slate-700 rounded-lg"
-              >
-                <div className="mb-2 text-sm text-slate-500 dark:text-slate-400">
-                  {doc.metadata.source_file && (
-                    <span className="mr-3">Source: {doc.metadata.source_file}</span>
-                  )}
-                  {doc.metadata.page_start && doc.metadata.page_end && (
-                    <span>Pages: {doc.metadata.page_start}-{doc.metadata.page_end}</span>
-                  )}
-                </div>
-                
-                {doc.metadata.main_section && (
-                  <h4 className="text-md font-medium mb-1">
-                    {doc.metadata.main_section}
-                  </h4>
-                )}
-                
-                <p className="text-slate-700 dark:text-slate-300 whitespace-pre-line">
-                  {doc.text}
-                </p>
-                
-                <div className="mt-2 text-right">
-                  <span className="text-sm text-slate-500 dark:text-slate-400">
-                    Relevance: {Math.round(doc.relevance_score * 100)}%
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div> */}
+
+          
         </div>
       )}
     </Card>
