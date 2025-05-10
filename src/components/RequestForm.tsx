@@ -39,7 +39,7 @@ export const RequestForm: React.FC<RequestFormProps> = ({ onSubmit, isLoading })
                           id="useCase"
                           placeholder="e.g. FAS32_IJARAH"
                           value={useCase}
-                          onChange={(e) => setPrompt(e.target.value)}
+                          onChange={(e) => setUseCase(e.target.value)}
                           className="min-h-[150px] border-slate-800 bg-slate-950/70 text-slate-300 focus:border-emerald-500 focus:ring-emerald-500/20 resize-none"
                           required
                       />

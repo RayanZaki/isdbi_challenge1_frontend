@@ -6,7 +6,6 @@ const API_URL = 'https://idsbi-use-case-ledger-entries.onrender.com';
 // Types for our API requests and responses
 export interface ApiRequest {
   useCase: string;
-  prompt: string;
 }
 
 export interface ApiResponse {

@@ -48,8 +48,8 @@ export const KeyValuePairs: React.FC<KeyValuePairsProps> = ({ data }) => {
   const groups = organizeData();
 
   return (
-    <Card className="w-full border-slate-800/50 bg-slate-900/50 backdrop-blur-sm shadow-xl">
-      <CardHeader className="border-b border-slate-800/50">
+    <Card className="w-full border-slate-800/50 bg-slate-900/50 backdrop-blur-sm shadow-xl h-full flex flex-col">
+      <CardHeader className="border-b border-slate-800/50 bg-slate-800/70">
         <CardTitle className="text-xl text-emerald-400 font-semibold flex items-center">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
             <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
@@ -58,22 +58,22 @@ export const KeyValuePairs: React.FC<KeyValuePairsProps> = ({ data }) => {
           Transaction Details
         </CardTitle>
       </CardHeader>
-      <CardContent className="pt-6">
-        <div className="space-y-6">
+      <CardContent className="pt-4 overflow-y-auto">
+        <div className="space-y-4">
           {groups.map(([groupName, values]) => (
-            <div key={groupName} className="space-y-3">
-              <h3 className="text-lg font-semibold text-slate-200 flex items-center">
+            <div key={groupName} className="space-y-2">
+              <h3 className="text-sm font-semibold text-slate-200 flex items-center uppercase tracking-wider">
                 <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 mr-2"></span>
                 {groupName}
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 gap-2">
                 {Object.entries(values).map(([key, value]) => (
                   <div 
                     key={key} 
-                    className="flex flex-col p-3 border rounded-md bg-slate-800/50 border-slate-700/50 hover:border-emerald-500/50 transition-colors"
+                    className="flex p-2 border rounded-md bg-slate-800/50 border-slate-700/50 hover:border-emerald-500/50 transition-colors"
                   >
-                    <span className="text-xs text-slate-400">{formatKey(key)}</span>
-                    <span className="font-medium text-slate-200 truncate" title={value}>
+                    <span className="text-xs text-slate-400 w-1/2">{formatKey(key)}</span>
+                    <span className="font-medium text-slate-200 w-1/2 text-right truncate" title={value}>
                       {key.toLowerCase().includes('date') 
                         ? new Date(value).toLocaleDateString() 
                         : value}
@@ -87,4 +87,4 @@ export const KeyValuePairs: React.FC<KeyValuePairsProps> = ({ data }) => {
       </CardContent>
     </Card>
   );
-};
+}

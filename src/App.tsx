@@ -55,15 +55,19 @@ function App() {
         )}
         
         {response?.success && response.result && (
-          <div className="space-y-8 max-w-4xl mx-auto animate-in fade-in duration-700">
-            <ClassificationInfo 
-              preClassification={response.result.pre_classification[0]} 
-              classification={response.result.classification} 
-            />
-            
-            <KeyValuePairs data={response.result.key_value_pairs} />
-            
+          <div className="space-y-8  mx-auto animate-in fade-in duration-700">
+            {/* Ledger entries first */}
             <LedgerEntries data={response.result.event_processing} />
+            
+            {/* Two-column layout for classification and key-value pairs */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <ClassificationInfo 
+                preClassification={response.result.pre_classification[0]} 
+                classification={response.result.classification} 
+              />
+              
+              <KeyValuePairs data={response.result.key_value_pairs} />
+            </div>
           </div>
         )}
       </main>
