@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
-import type { ApiResponse } from '../services/api';
 
 // Define explicit types for classification data
 interface ClassificationData {
