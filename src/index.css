@@ -1,0 +1,62 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'tailwindcss';
+
+@layer base {
+  :root {
+    /* Light theme */
+    --background: 250 252 255; /* Light blue-tinted white */
+    --foreground: 28 41 65; /* Navy-900 */
+    --card: 255 255 255; /* Pure white */
+    --card-foreground: 28 41 65; /* Navy-900 */
+    --popover: 255 255 255; /* Pure white */
+    --popover-foreground: 28 41 65; /* Navy-900 */
+    --primary: 5 150 105; /* Emerald-600 */
+    --primary-foreground: 255 255 255; /* White */
+    --secondary: 225 234 245; /* Navy-100 */
+    --secondary-foreground: 47 75 124; /* Navy-700 */
+    --muted: 240 245 250; /* Light blue-gray */
+    --muted-foreground: 113 128 150; /* Slate-400 */
+    --accent: 199 229 242; /* Light teal */
+    --accent-foreground: 17 94 89; /* Teal-800 */
+    --destructive: 220 38 38; /* Red-600 */
+    --destructive-foreground: 255 255 255; /* White */
+    --border: 226 232 240; /* Gray-200 */
+    --input: 226 232 240; /* Gray-200 */
+    --ring: 5 150 105; /* Emerald-600 */
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Dark theme */
+    --background: 15 23 42; /* Slate-900 */
+    --foreground: 241 245 249; /* Slate-100 */
+    --card: 30 41 59; /* Slate-800 */
+    --card-foreground: 241 245 249; /* Slate-100 */
+    --popover: 30 41 59; /* Slate-800 */
+    --popover-foreground: 241 245 249; /* Slate-100 */
+    --primary: 16 185 129; /* Emerald-500 */
+    --primary-foreground: 255 255 255; /* White */
+    --secondary: 51 65 85; /* Slate-700 */
+    --secondary-foreground: 226 232 240; /* Slate-200 */
+    --muted: 51 65 85; /* Slate-700 */
+    --muted-foreground: 148 163 184; /* Slate-400 */
+    --accent: 28 52 84; /* Navy-800 */
+    --accent-foreground: 199 229 242; /* Light teal */
+    --destructive: 185 28 28; /* Red-700 */
+    --destructive-foreground: 255 255 255; /* White */
+    --border: 51 65 85; /* Slate-700 */
+    --input: 51 65 85; /* Slate-700 */
+    --ring: 16 185 129; /* Emerald-500 */
+  }
+}
+
+@layer base {
+  /* body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  } */
+}
