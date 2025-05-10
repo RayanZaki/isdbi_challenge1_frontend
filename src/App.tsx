@@ -1,13 +1,17 @@
-import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
+import { useState } from 'react';
 import { RequestForm } from './components/RequestForm';
 import { ClassificationInfo } from './components/ClassificationInfo';
 import { KeyValuePairs } from './components/KeyValuePairs';
 import { LedgerEntries } from './components/LedgerEntries';
+import { Navigation } from './components/Navigation';
 import { ApiService } from './services/api';
 import type { ApiRequest, ApiResponse } from './services/api';
+import { TransactionAnalysisPage } from './pages/TransactionAnalysisPage';
 
-function App() {
+// Home page component
+function HomePage() {
   const [isLoading, setIsLoading] = useState(false);
   const [response, setResponse] = useState<ApiResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -35,6 +39,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100">
+      <Navigation />
       <main className="container mx-auto py-8 px-4">
         <h1 className="text-3xl font-bold text-center mb-8">Islamic Accounting Processor</h1>
         
@@ -73,6 +78,18 @@ function App() {
         <p>© {new Date().getFullYear()} Islamic Accounting Processor</p>
       </footer>
     </div>
+  );
+}
+
+// Main App component with routing
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/transaction-analysis" element={<TransactionAnalysisPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

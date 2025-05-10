@@ -1,24 +1,66 @@
-# React + TypeScript + Vite
+# Islamic Accounting Processor with Transaction Analysis
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React application for processing Islamic accounting transactions and analyzing their compliance with AAOIFI Financial Accounting Standards (FAS).
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Accounting Processor
+- Process Islamic accounting transactions
+- Pre-classification and classification of transactions
+- Generate ledger entries with debit and credit accounts
+- Extract key-value pairs from transaction descriptions
 
-## Expanding the ESLint configuration
+### Transaction Analysis
+- Analyze transaction text for FAS applicability
+- View transaction overview (primary financial event, key items, treatments)
+- Visualize FAS standard applicability with confidence scores
+- Browse relevant FAS document excerpts
+- View processing steps and performance metrics
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Development
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
+This project uses:
+- React for the UI
+- TypeScript for type safety
+- Tailwind CSS for styling
+- React Router for navigation
+- Axios for API requests
+
+### Getting Started
+
+1. Install dependencies:
+   ```
+   npm install
+   ```
+
+2. Start the development server:
+   ```
+   npm run dev
+   ```
+
+3. Build for production:
+   ```
+   npm run build
+   ```
+
+## API Endpoints
+
+### Accounting Processor API
+- POST `/api/process-pipeline`
+  - Takes a user prompt and use case
+  - Returns classification, key-value pairs, and ledger entries
+
+### Transaction Analysis API
+- POST `/api/analyze-transaction`
+  - Takes transaction_text
+  - Returns analysis, FAS documents, applicability, and processing steps
+
+## Configuration
+
+API endpoints are configured in `src/services/api.ts`. The application connects directly to the API endpoints:
+
+- Accounting Processor: `${API_URL}/api/process-pipeline`
+- Transaction Analysis: `${API_URL}/api/analyze-transaction`
     ...tseslint.configs.stylisticTypeChecked,
   ],
   languageOptions: {
