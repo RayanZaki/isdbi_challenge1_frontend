@@ -17,11 +17,8 @@ function App() {
     setError(null);
     
     try {
-      // In a real application, use processRequest instead of getMockResponse
-      // const result = await ApiService.processRequest(data);
-      
-      // For demo/development, we'll use the mock response
-      const result = ApiService.getMockResponse();
+      // Using the real API call instead of mock response
+      const result = await ApiService.processRequest(data);
       
       setResponse(result);
       
