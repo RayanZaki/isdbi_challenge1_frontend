@@ -34,25 +34,25 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
-      <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10 pointer-events-none"></div>
-      <main className="container mx-auto py-12 px-4 relative z-10">
-        <h1 className="text-4xl font-bold text-center mb-8 text-white tracking-tight">
-          <span className="bg-gradient-to-r from-emerald-400 to-teal-500 bg-clip-text text-transparent">Islamic Accounting</span> Processor
-        </h1>
+    <div className="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100">
+      <main className="container mx-auto py-8 px-4">
+        <h1 className="text-3xl font-bold text-center mb-8">Islamic Accounting Processor</h1>
         
-        <div className="max-w-3xl mx-auto mb-10">
-          <RequestForm onSubmit={handleSubmit} isLoading={isLoading} />
+        <div className="max-w-3xl mx-auto mb-8">
+          <RequestForm 
+            onSubmit={handleSubmit} 
+            isLoading={isLoading}
+          />
         </div>
         
         {error && (
-          <div className="max-w-3xl mx-auto my-6 p-4 border border-red-600 text-red-600 bg-red-950/20 rounded-md">
+          <div className="max-w-3xl mx-auto my-6 p-4 border border-red-600 text-red-600 bg-red-50/10 rounded-md">
             {error}
           </div>
         )}
         
         {response?.success && response.result && (
-          <div className="space-y-8  mx-auto animate-in fade-in duration-700">
+          <div className="space-y-8 max-w-7xl mx-auto">
             {/* Ledger entries first */}
             <LedgerEntries data={response.result.event_processing} />
             
@@ -69,7 +69,7 @@ function App() {
         )}
       </main>
       
-      <footer className="py-6 text-center text-sm text-slate-500 relative z-10">
+      <footer className="py-6 text-center text-sm text-slate-500 dark:text-slate-400">
         <p>© {new Date().getFullYear()} Islamic Accounting Processor</p>
       </footer>
     </div>
