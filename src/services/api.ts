@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Define the API base URL - replace with your actual API endpoint
-const API_URL = 'http://localhost:8000';
+const API_URL = 'https://idsbi-use-case-ledger-entries.onrender.com';
 
 // Types for our API requests and responses
 export interface ApiRequest {
@@ -44,7 +44,7 @@ export const ApiService = {
   // Process the accounting request
   processRequest: async (data: ApiRequest): Promise<ApiResponse> => {
     try {
-      const response = await axios.post<ApiResponse>(`${API_URL}/process`, data);
+        const response = await axios.post<ApiResponse>(`${API_URL}/api/process-pipeline`, data);
       return response.data;
     } catch (error) {
       if (axios.isAxiosError(error) && error.response) {
