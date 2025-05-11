@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // Define the API base URL - replace with your actual API endpoint
 const API_URL = 'https://idsbi-use-case-ledger-entries.onrender.com';
-const Transaction_API_URL = 'http://localhost:8000';
+const Transaction_API_URL = 'https://isdbi-challenge2-frontend-1.onrender.com';
 // Types for our API requests and responses
 export interface ApiRequest {
   useCase: string;
